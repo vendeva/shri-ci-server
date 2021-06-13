@@ -16,7 +16,6 @@ module.exports = async (req, res) => {
                     if (Date.now() - Date.parse(stats.birthtime) < 86400000) {
                         const stream = fs.createReadStream("logs.txt");
                         stream.pipe(res);
-                        stream.pipe(res);
                     } else {
                         data.pipe(fs.createWriteStream("logs.txt"));
                         data.pipe(res);
