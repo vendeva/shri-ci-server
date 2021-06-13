@@ -13,7 +13,7 @@ module.exports = {
     PORT: 8000,
     instance: axios.create({
         baseURL: "https://shri.yandex/hw/api",
-        timeout: 3000,
+        timeout: 5000,
         headers: {
             Authorization: "Bearer " + process.env["API_TOKEN"],
         },
