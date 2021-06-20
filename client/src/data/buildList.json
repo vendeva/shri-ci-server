@@ -1,0 +1,112 @@
+{
+    "data": [
+        {
+            "id": "57ed6b70-603b-4820-a519-f5a805dff99e",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 11,
+            "commitMessage": "modify webpack config",
+            "commitHash": "5dd83fb0aac8c3154abd102aac6817e7052107d5",
+            "branchName": "main",
+            "authorName": "Vendeva",
+            "status": "Waiting",
+            "start": "2021-06-17T19:33:25.715Z",
+            "duration": 120
+        },
+        {
+            "id": "cb0a9a5f-9d50-4623-853e-58ba4e4734c0",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 10,
+            "commitMessage": "fix(edit_operation_and_create_report) добавлена возможность отправить пустое описание",
+            "commitHash": "e50238dca6e288b1e1ae6bf58805b0ae67bd92d4",
+            "branchName": "feature/edit_operation_and_create_report",
+            "authorName": "Vendeva",
+            "status": "Canceled",
+            "start": "2021-06-17T19:33:25.715Z",
+            "duration": 30
+        },
+        {
+            "id": "d7ae6361-c76f-4732-9f56-e143a36715b8",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 9,
+            "commitMessage": "fix(edit_operation_and_create_report) добавлена возможность отправить пустое описание",
+            "commitHash": "e50238dca6e288b1e1ae6bf58805b0ae67bd92d4",
+            "branchName": "feature/edit_operation_and_create_report",
+            "authorName": "Vendeva",
+            "status": "Success"
+        },
+        {
+            "id": "8df04ee1-6900-42c5-bffa-aa798a220a5d",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 8,
+            "commitMessage": "fix(edit_operation_and_create_report) добавлена возможность отправить пустое описание",
+            "commitHash": "e50238dca6e288b1e1ae6bf58805b0ae67bd92d4",
+            "branchName": "dev",
+            "authorName": "Vendeva",
+            "status": "Waiting"
+        },
+        {
+            "id": "49102afa-fce4-4f14-9e38-85f84a6b9ebe",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 7,
+            "commitMessage": "add results first task and make interactive elements",
+            "commitHash": "1530f180731e2a935714254db5a882444304621b",
+            "branchName": "master",
+            "authorName": "Vendeva",
+            "status": "Waiting"
+        },
+        {
+            "id": "57ed6b70-603b-4820-a519-f5a805dff99e/test",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 11,
+            "commitMessage": "modify webpack config",
+            "commitHash": "5dd83fb0aac8c3154abd102aac6817e7052107d5",
+            "branchName": "main",
+            "authorName": "Vendeva",
+            "status": "Waiting",
+            "start": "2021-06-17T19:33:25.715Z",
+            "duration": 120
+        },
+        {
+            "id": "cb0a9a5f-9d50-4623-853e-58ba4e4734c0/test",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 10,
+            "commitMessage": "fix(edit_operation_and_create_report) добавлена возможность отправить пустое описание",
+            "commitHash": "e50238dca6e288b1e1ae6bf58805b0ae67bd92d4",
+            "branchName": "feature/edit_operation_and_create_report",
+            "authorName": "Vendeva",
+            "status": "Canceled",
+            "start": "2021-06-17T19:33:25.715Z",
+            "duration": 30
+        },
+        {
+            "id": "d7ae6361-c76f-4732-9f56-e143a36715b8/test",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 9,
+            "commitMessage": "fix(edit_operation_and_create_report) добавлена возможность отправить пустое описание",
+            "commitHash": "e50238dca6e288b1e1ae6bf58805b0ae67bd92d4",
+            "branchName": "feature/edit_operation_and_create_report",
+            "authorName": "Vendeva",
+            "status": "Success"
+        },
+        {
+            "id": "8df04ee1-6900-42c5-bffa-aa798a220a5d/test",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 8,
+            "commitMessage": "fix(edit_operation_and_create_report) добавлена возможность отправить пустое описание",
+            "commitHash": "e50238dca6e288b1e1ae6bf58805b0ae67bd92d4",
+            "branchName": "dev",
+            "authorName": "Vendeva",
+            "status": "Waiting"
+        },
+        {
+            "id": "49102afa-fce4-4f14-9e38-85f84a6b9ebe/test",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 7,
+            "commitMessage": "add results first task and make interactive elements",
+            "commitHash": "1530f180731e2a935714254db5a882444304621b",
+            "branchName": "master",
+            "authorName": "Vendeva",
+            "status": "Waiting"
+        }
+    ]
+}
