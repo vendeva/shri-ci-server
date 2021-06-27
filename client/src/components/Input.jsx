@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Input = ({ placeholder, required, pattern, title, value, type }) => {
+export const Input = ({ placeholder, required, pattern, title, value, type, name }) => {
     const componentName = "input";
     const [inputValue, setValue] = useState(value);
     const handleChange = (e) => setValue(e.target.value);
@@ -23,9 +23,9 @@ export const Input = ({ placeholder, required, pattern, title, value, type }) =>
                         handleChange(e);
                     }}
                     value={inputValue}
-                    required={required}
                     pattern={pattern}
                     type={type || "text"}
+                    name={name}
                 />
                 {inputValue && (
                     <div

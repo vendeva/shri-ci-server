@@ -5,22 +5,24 @@ const fs = require("fs");
 module.exports = async (req, res) => {
     const { buildId } = req.params;
     try {
-        const { data } = await instance.get("/build/log", { responseType: "stream", params: { buildId } });
+        const { data } = await instance.get("/build/log", {
+            responseType: "stream",
+            params: { buildId },
+        });
 
-        fs.exists("logs.txt", function (exists) {
-            if (!exists) {
-                data.pipe(fs.createWriteStream("logs.txt"));
+        const logName = `${buildId}`.slice(0, 5);
+        fs.stat(`logs/${logName}.txt`, function (err, stat) {
+            if (!stat) {
+                data.pipe(fs.createWriteStream(`logs/${logName}.txt`));
                 data.pipe(res);
             } else {
-                fs.stat("logs.txt", (err, stats) => {
-                    if (Date.now() - Date.parse(stats.birthtime) < 86400000) {
-                        const stream = fs.createReadStream("logs.txt");
-                        stream.pipe(res);
-                    } else {
-                        data.pipe(fs.createWriteStream("logs.txt"));
-                        data.pipe(res);
-                    }
-                });
+                if (Date.now() - Date.parse(stat.mtime) < 86400000 && stat.size) {
+                    const stream = fs.createReadStream(`logs/${logName}.txt`);
+                    stream.pipe(res);
+                } else {
+                    data.pipe(fs.createWriteStream(`logs/${logName}.txt`));
+                    data.pipe(res);
+                }
             }
         });
     } catch (e) {

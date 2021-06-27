@@ -11,11 +11,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-fs.mkdir(useLocalPath, (err) => {
-    if (err) {
-        return console.error(err.message);
+fs.stat("localRepository", function (err, stat) {
+    if (!stat) {
+        fs.mkdir(useLocalPath, (err) => {
+            if (err) {
+                return console.error(err.message);
+            }
+            console.log("Directory created successfully!");
+        });
     }
-    console.log("Directory created successfully!");
 });
 
 // settings routes

@@ -1,37 +1,31 @@
 import { BuildCard } from "./BuildCard";
-import dataJson from "../data/buildList.json";
+import { Button } from "./Button";
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getFetchBuilds } from "../actions/builds";
+import { getIsShowEnd } from "../reducers/interactive";
+import constants from "../constants/constants";
 
-export const BuildList = () => {
-    const { data } = dataJson;
+export const BuildList = (params) => {
+    const { data } = params;
+    const dispatch = useDispatch();
+    const isShowEnd = useSelector(getIsShowEnd);
+    const handleShowMore = useCallback(
+        () => dispatch(getFetchBuilds({ limit: constants.ADD_LIMIT, offset: data.length }, true)),
+        [dispatch, data.length]
+    );
+
     return (
         <>
-            {data.map(
-                ({
-                    status,
-                    id,
-                    buildNumber,
-                    commitMessage,
-                    branchName,
-                    commitHash,
-                    authorName,
-                    start,
-                    duration,
-                }) => (
-                    <BuildCard
-                        link={`/build/${id}`}
-                        buildNumber={buildNumber}
-                        commitMessage={commitMessage}
-                        branchName={branchName}
-                        commitHash={commitHash}
-                        authorName={authorName}
-                        start={start}
-                        duration={duration}
-                        key={id}
-                        status={status}
-                    />
-                )
-            )}
-            <button className="container__show button-condition-grey">Show more</button>
+            {data.map((item) => (
+                <BuildCard link={`/build/${item.id}`} data={item} key={item.id} />
+            ))}
+            <Button
+                text="Show more"
+                view="cancel"
+                click={handleShowMore}
+                elementClass={`container__show ${isShowEnd ? "button_none" : ""}`}
+            />
         </>
     );
 };
