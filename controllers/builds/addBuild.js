@@ -21,12 +21,12 @@ module.exports = async (req, res) => {
         const infoAvtorCommitSplit = infoAvtorCommit.stdout.split("|");
         const infoCurrentBranchSplit = currentBranch.stdout.split("\n");
         [authorName, commitMessage, originBranch] = infoAvtorCommitSplit;
-        console.log(infoAvtorCommit);
-        console.log(infoCurrentBranchSplit);
+        //console.log(infoAvtorCommit);
+        //console.log(infoCurrentBranchSplit);
         branchName = infoCurrentBranchSplit[0].replace("*", "").trim();
         if (!branchName) {
             branchName = `${originBranch}`.replace(/\(origin\//, "").replace(/\)/, "");
-            console.log(branchName);
+            //console.log(branchName);
         }
 
         //Постановка билда
