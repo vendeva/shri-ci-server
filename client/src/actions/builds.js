@@ -29,6 +29,7 @@ export const getFetchBuilds =
     (params, more = false) =>
     (dispatch) => {
         dispatch(isFetch(true));
+        dispatch({ type: constants.SHOW_END, payload: false });
         const url = new URL(`${constants.SERVER_API}/builds`);
         url.search = new URLSearchParams(params).toString();
         return fetch(url.href)
