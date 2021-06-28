@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
-const { PORT, useLocalPath } = require("./config");
+const { PORT, useLocalPath, useLogsPath } = require("./config");
 const { apiSettings, apiBuilds } = require("./routers");
 const port = PORT || 8080;
 
@@ -17,7 +17,17 @@ fs.stat("localRepository", function (err, stat) {
             if (err) {
                 return console.error(err.message);
             }
-            console.log("Directory created successfully!");
+            console.log("Directory 'localRepository' created successfully!");
+        });
+    }
+});
+fs.stat("logs", function (err, stat) {
+    if (!stat) {
+        fs.mkdir(useLogsPath, (err) => {
+            if (err) {
+                return console.error(err.message);
+            }
+            console.log("Directory 'logs' created successfully!");
         });
     }
 });

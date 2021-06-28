@@ -56,10 +56,10 @@ module.exports = async (req, res) => {
         //console.log(resultData);
         const start = new Date().toJSON();
         //console.log(start);
-        console.log({
-            buildId: resultData.id,
-            dateTime: start,
-        });
+        // console.log({
+        //     buildId: resultData.id,
+        //     dateTime: start,
+        // });
         // Старт сборки
         await instance.post("/build/start", {
             buildId: resultData.id,
