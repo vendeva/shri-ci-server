@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "id": "188ed03a-5c78-4122-be98-012fd55bdcfd",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 18,
+            "commitMessage": "feat(delete_category) добавлено удаление категории",
+            "commitHash": "69b09d4cec4d2a2bea60c01fda691ff15968f435",
+            "branchName": " feature/delete_category",
+            "authorName": "Vendeva",
+            "status": "Success",
+            "start": "2021-06-27T13:39:26.104",
+            "duration": 6
+        },
+        {
+            "id": "556dbebb-f4be-41cf-aed2-8eda61bdb16e",
+            "configurationId": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+            "buildNumber": 17,
+            "commitMessage": "feat(delete_category) добавлено удаление категории",
+            "commitHash": "69b09d4cec4d2a2bea60c01fda691ff15968f435",
+            "branchName": " feature/delete_category",
+            "authorName": "Vendeva",
+            "status": "Success",
+            "start": "2021-06-27T13:30:32.981",
+            "duration": 6
+        }
+    ]
+}

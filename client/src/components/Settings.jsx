@@ -30,7 +30,7 @@ export const Settings = () => {
             period,
         };
         setSubmitValues(settingsData);
-        if (!Object.values(settingsData).some((item) => !item)) {
+        if (!Object.values({ repoName, buildCommand }).some((item) => !item)) {
             dispatch(saveSettings(settingsData));
         }
     };
@@ -43,7 +43,9 @@ export const Settings = () => {
             </div>
             {error && <div className="error">{`${constants.ERROR_WARNING}\n${error}`}</div>}
             {submitValues.repoName === "" && (
-                <div className="error">{constants.ERROR_REPONAME}</div>
+                <div className="error" data-testid="error-repoName">
+                    {constants.ERROR_REPONAME}
+                </div>
             )}
             <Input
                 placeholder="user-name/repo-name"
@@ -51,9 +53,12 @@ export const Settings = () => {
                 title="GitHub repository"
                 name="repoName"
                 value={repoName}
+                data_testid="repoName"
             />
             {submitValues.buildCommand === "" && (
-                <div className="error">{constants.ERROR_BUILDCOMMAND}</div>
+                <div className="error" data-testid="error-buildCommand">
+                    {constants.ERROR_BUILDCOMMAND}
+                </div>
             )}
             <Input
                 placeholder="npm ci && npm run build"
@@ -61,26 +66,38 @@ export const Settings = () => {
                 title="Build command"
                 name="buildCommand"
                 value={buildCommand}
+                data_testid="buildCommand"
             />
-            <Input placeholder="master" title="Main branch" name="mainBranch" value={mainBranch} />
+            <Input
+                placeholder="master"
+                title="Main branch"
+                name="mainBranch"
+                value={mainBranch}
+                data_testid="mainBranch"
+            />
             <div className="settings__period">
-                <Input value={period || "10"} name="period" type="number" pattern="/^[0-9]$/" />
+                <Input
+                    value={period || "10"}
+                    name="period"
+                    type="number"
+                    pattern="/^[0-9]$/"
+                    data_testid="period"
+                />
             </div>
             <div className="button">
-                <Button type="submit" text="Save" view="action" disabled={isFetch} />
-                {/* <button className="button_action button_condition-yellow">Save</button> */}
+                <Button
+                    type="submit"
+                    text="Save"
+                    view="action"
+                    disabled={isFetch}
+                    data_testid="save-settings"
+                />
                 <Button
                     text="Cancel"
                     view="cancel"
                     disabled={isFetch}
                     click={() => history.push("/")}
                 />
-                {/* <button
-                    className="button_cancel button_condition-grey"
-                    onClick={() => history.push("/")}
-                >
-                    Cancel
-                </button> */}
             </div>
         </form>
     );

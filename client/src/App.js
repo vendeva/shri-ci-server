@@ -6,7 +6,6 @@ import { SettingsPage } from "./pages/SettingsPage.jsx";
 import { BuildListPage } from "./pages/BuildListPage.jsx";
 import { BuildDetailsPage } from "./pages/BuildDetailsPage.jsx";
 import { Footer } from "./components/Footer.jsx";
-import { Popup } from "./components/Popup.jsx";
 import { getIsPopupActive, getIsLoadingApp } from "./reducers/interactive";
 import { getSettings } from "./reducers/settings";
 import { getFetchSettings } from "./actions/settings";
@@ -49,7 +48,6 @@ function App() {
                         </Switch>
                     </div>
                     <Footer />
-                    {isPopupActive && <Popup />}
                 </BrowserRouter>
             )}
         </>

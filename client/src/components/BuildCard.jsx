@@ -17,16 +17,12 @@ export const BuildCard = (params) => {
     } = params.data;
 
     const date = new Date(`${start}Z`);
-
     const months = constants.MONTHS;
     const dateString = start
-        ? `${date.getDate()} ${months[date.getMonth()]}, ${date.toLocaleTimeString(
-              navigator.language,
-              {
-                  hour: "2-digit",
-                  minute: "2-digit",
-              }
-          )}`
+        ? `${date.getDate()} ${months[date.getMonth()]}, ${date.toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+          })}`
         : "";
 
     const timeFormat = (duration) => {
@@ -40,7 +36,7 @@ export const BuildCard = (params) => {
     const CustomTag = link ? Link : "div";
 
     return (
-        <CustomTag to={link} className={componentName}>
+        <CustomTag to={link} className={componentName} data-testid={params.data_testid}>
             <div className={`${componentName}__data`}>
                 <div className={`${componentName}__head`}>
                     <div
@@ -53,7 +49,7 @@ export const BuildCard = (params) => {
                 </div>
                 <div className={`${componentName}__body`}>
                     <div className={`${componentName}__branchName`}>{branchName}</div>
-                    <div className={`${componentName}__commitHash`}>
+                    <div className={`${componentName}__commitHash`} data-testid="build-commitHash">
                         {commitHash && commitHash.slice(0, 7)}
                     </div>
                     <div className={`${componentName}__authorName`}>{authorName}</div>

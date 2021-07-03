@@ -1,6 +1,15 @@
 import { useState } from "react";
 
-export const Input = ({ placeholder, required, pattern, title, value, type, name }) => {
+export const Input = ({
+    placeholder,
+    required,
+    pattern,
+    title,
+    value,
+    type,
+    name,
+    data_testid,
+}) => {
     const componentName = "input";
     const [inputValue, setValue] = useState(value);
     const handleChange = (e) => setValue(e.target.value);
@@ -26,10 +35,12 @@ export const Input = ({ placeholder, required, pattern, title, value, type, name
                     pattern={pattern}
                     type={type || "text"}
                     name={name}
+                    data-testid={data_testid}
                 />
                 {inputValue && (
                     <div
                         className={`${componentName}__clear`}
+                        data-testid="clear-input"
                         onClick={(e) => {
                             handleClick(e);
                         }}

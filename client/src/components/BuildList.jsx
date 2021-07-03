@@ -17,14 +17,20 @@ export const BuildList = (params) => {
 
     return (
         <>
-            {data.map((item) => (
-                <BuildCard link={`/build/${item.id}`} data={item} key={item.id} />
+            {data.map((item, i) => (
+                <BuildCard
+                    link={`/build/${item.id}`}
+                    data={item}
+                    key={item.id}
+                    data_testid={!i && "build-link"}
+                />
             ))}
             <Button
                 text="Show more"
                 view="cancel"
                 click={handleShowMore}
                 elementClass={`container__show ${isShowEnd ? "button_none" : ""}`}
+                data_testid="build-show"
             />
         </>
     );

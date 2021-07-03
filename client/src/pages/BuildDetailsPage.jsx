@@ -18,6 +18,7 @@ export const BuildDetailsPage = () => {
             type: constants.DETAIL_BUILD,
             payload: {},
         });
+
         dispatch(getFetchBuildById(buildId));
     }, [dispatch, buildId]);
 
@@ -42,7 +43,7 @@ export const BuildDetailsPage = () => {
                     />
                     <div className="container">
                         <BuildCard data={data} key={buildId} />
-                        {data.log ? (
+                        {data.log && !(data.log instanceof Object) ? (
                             <Log log={data.log} />
                         ) : (
                             !error && (

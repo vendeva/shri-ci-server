@@ -12,6 +12,7 @@ export const Start = () => {
             <button
                 className="start__button button_action button_condition-yellow"
                 onClick={() => history.push("/settings")}
+                data-testid="settings-open"
             >
                 Open settings
             </button>

@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Header } from "../components/Header";
 import { BuildList } from "../components/BuildList";
+import { Popup } from "../components/Popup.jsx";
+import { getIsPopupActive } from "../reducers/interactive";
 import { getSettings } from "../reducers/settings";
 import { getBuilds } from "../reducers/builds";
 import { getFetchBuilds } from "../actions/builds";
@@ -14,6 +16,7 @@ export const BuildListPage = () => {
         dispatch(getFetchBuilds({ limit: constants.ADD_LIMIT }));
     }, [dispatch]);
     const data = useSelector(getBuilds);
+    const isPopupActive = useSelector(getIsPopupActive);
 
     let { repoName } = useSelector(getSettings);
     repoName = repoName
@@ -28,10 +31,12 @@ export const BuildListPage = () => {
                 text={constants.RUN_BUILD}
                 title={data[0] && `${data[0].authorName}/${repoName}`}
                 clickButton={() => dispatch(toggle(true))}
+                dataRunBuild="build-popup"
             />
-            <div className="container">
+            <div className="container" data-testid="build-list">
                 <BuildList data={data} />
             </div>
+            {isPopupActive && <Popup />}
         </>
     );
 };

@@ -2,7 +2,7 @@ import classnames from "classnames";
 import { Button } from "./Button";
 import { useHistory } from "react-router-dom";
 
-export const Header = ({ classHeader, text, title, clickButton }) => {
+export const Header = ({ classHeader, text, title, clickButton, dataRunBuild }) => {
     let history = useHistory();
     const componentName = "header";
     return (
@@ -14,6 +14,7 @@ export const Header = ({ classHeader, text, title, clickButton }) => {
                     view="cancel"
                     click={clickButton}
                     elementClass={`${componentName}__popup-button`}
+                    data_testid={dataRunBuild}
                 />
                 <Button
                     view="cancel"

@@ -31,9 +31,10 @@ export const Popup = () => {
                     required="required"
                     pattern="\S+"
                     value=""
+                    data_testid="build-input"
                 />
                 <div className="button">
-                    <Button type="submit" text="Run build" view="action" />
+                    <Button type="submit" text="Run build" view="action" data_testid="build-done" />
                     <Button text="Cancel" view="cancel" click={() => dispatch(toggle(false))} />
                 </div>
             </form>
