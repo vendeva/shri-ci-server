@@ -11,19 +11,18 @@
 
 ### Тесты
 
-# Модульное тестирование
+#### Модульное тестирование
 
 В папке client/src/**tests**. Команда для запуска тестов npm run test в папке client. Папка client/dataForTests заглушка для модульного и интегрционного тестирования.
 
-# Интеграционное тестирование
+#### Интеграционное тестирование
 
-В корне проекта выполнить npm link html-url-decorator.
-Установить глобально selenium-standalone: npm install selenium-standalone --global
-Далее выполнить: selenium-standalone install
-В отдельной папке терминала выполнить selenium-standalone start (к сожалению использование плагина hermione-selenium-standalone-runner в конфиге hermione приводи к ошибке spawn selenium-standalone ENOENT(Windows 10))
-Также не отрабатывает корректно html-reporter
-Команда для запуска тестов npm run hermione
+-   В корне проекта выполнить npm link html-url-decorator.
+-   Установить глобально selenium-standalone: npm install selenium-standalone --global.
+-   Далее выполнить: selenium-standalone install.
+-   В отдельной папке терминала выполнить selenium-standalone start (к сожалению использование плагина hermione-selenium-standalone-runner в конфиге hermione приводи к ошибке spawn selenium-standalone ENOENT(Windows 10)). Также не отрабатывает корректно html-reporter.
+-   Команда для запуска тестов npm run hermione.
 
-# Другое
+#### Другое
 
-Папка client/dataForTests заглушка для модульного и интеграционного тестирования
+Папка client/dataForTests заглушка для модульного и интеграционного тестирования.
