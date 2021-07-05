@@ -27,13 +27,19 @@ export const saveSettings = (data) => (dispatch) => {
         .finally(() => dispatch(isFetch(false)));
 };
 
-export const getFetchSettings = () => (dispatch) => {
-    return fetch(`${constants.SERVER_API}/settings`)
+export const getFetchSettings = (params) => (dispatch) => {
+    const url = new URL(`${constants.SERVER_API}/settings`);
+    url.search = new URLSearchParams(params).toString();
+    return fetch(url.href)
         .then((res) => res.json())
         .then(
             (result) => {
-                const { repoName, buildCommand, mainBranch, period } = result.data;
-                dispatch(setSettings({ repoName, buildCommand, mainBranch, period, error: null }));
+                if (Object.keys(result).length !== 0) {
+                    const { repoName, buildCommand, mainBranch, period } = result.data;
+                    dispatch(
+                        setSettings({ repoName, buildCommand, mainBranch, period, error: null })
+                    );
+                }
             },
             (error) => {
                 dispatch(setSettings({ error }));

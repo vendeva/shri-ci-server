@@ -13,7 +13,12 @@ import { getFetchSettings } from "./actions/settings";
 function App() {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getFetchSettings());
+        const searchParams = new URLSearchParams(window.location.search);
+        const test = searchParams.get("enable_exp");
+        const start = searchParams.get("start");
+        let testQuery = test ? { test } : {};
+        testQuery = start ? { start } : testQuery;
+        dispatch(getFetchSettings({ ...testQuery }));
     }, [dispatch]);
     const { repoName } = useSelector(getSettings);
     const isPopupActive = useSelector(getIsPopupActive);

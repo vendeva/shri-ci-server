@@ -13,7 +13,10 @@ import constants from "../constants/constants";
 export const BuildListPage = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getFetchBuilds({ limit: constants.ADD_LIMIT }));
+        const searchParams = new URLSearchParams(window.location.search);
+        const test = searchParams.get("enable_exp");
+        const testQuery = test ? { test } : {};
+        dispatch(getFetchBuilds({ limit: constants.ADD_LIMIT, ...testQuery }));
     }, [dispatch]);
     const data = useSelector(getBuilds);
     const isPopupActive = useSelector(getIsPopupActive);
