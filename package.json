@@ -7,7 +7,7 @@
         "test": "jest",
         "start": "node server.js",
         "watch": "nodemon --watch server.js --watch controllers/*",
-        "hermione": "hermione --retry 1"
+        "hermione": "hermione gui --retry 1 -p 8080"
     },
     "author": "Venera Butakova",
     "license": "ISC",

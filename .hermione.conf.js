@@ -10,9 +10,9 @@ module.exports = {
         },
     },
     plugins: {
-        // "html-reporter/hermione": {
-        //     path: "hermione/html-reports",
-        // },
+        "html-reporter/hermione": {
+            path: "hermione-html-report",
+        },
         "url-decorator": {
             query: {
                 enable_exp: "1",

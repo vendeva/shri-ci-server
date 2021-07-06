@@ -16,7 +16,7 @@ describe("Страница настроек", function () {
 
         assert.strictEqual(text, "npm run build12");
 
-        //await browser.assertView("settings", ".settings");
+        await browser.assertView("settings", ".settings");
     });
 
     it("Предупреждения отображаются если не заполнены требуемые поля настроек ", async function () {
@@ -45,6 +45,6 @@ describe("Страница настроек", function () {
         assert.strictEqual(errorRepo, "Необходимо заполнить наименование репозитория");
         assert.strictEqual(errorCommand, "Необходимо заполнить команду для сборки");
 
-        //await browser.assertView("settings", ".settings");
+        await browser.assertView("settings", ".settings");
     });
 });

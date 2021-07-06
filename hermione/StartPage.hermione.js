@@ -28,6 +28,6 @@ describe("Стартовая страница", function () {
 
         await delay(1000);
 
-        //await browser.assertView("start", ".container");
+        await browser.assertView("start", ".container");
     });
 });

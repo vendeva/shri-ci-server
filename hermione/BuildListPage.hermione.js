@@ -17,7 +17,29 @@ describe("Страница список билдов", function () {
 
         assert.strictEqual(text, "#10");
 
-        //await browser.assertView("builds", ".container");
+        await browser.assertView("builds", ".container");
+    });
+
+    it("По клику на кнопку RunBuild в модальном окне когда поле не заполнено видно предупреждение", async function () {
+        const browser = this.browser;
+        await browser.url("/");
+
+        await delay(1000);
+
+        const a = await browser.$("[data-testid='build-popup']");
+        await a.click();
+
+        await delay(1000);
+
+        const b = await browser.$("[data-testid='build-done']");
+        await b.click();
+
+        const errorHash = await (await browser.$(".error")).getText();
+        assert.strictEqual(errorHash, "Необходимо заполнить хэш коммита");
+
+        await browser.assertView("builds", ".popup", {
+            allowViewportOverflow: true,
+        });
     });
 
     it("По клику на кнопку RunBuild открывается модальное окно", async function () {
@@ -34,7 +56,9 @@ describe("Страница список билдов", function () {
         const modal = await browser.$(".popup");
         modal.waitForExist();
 
-        //await browser.assertView("builds", ".popup");
+        await browser.assertView("builds", ".popup", {
+            allowViewportOverflow: true,
+        });
     });
 
     it("По клику на кнопку настроек открывается страница настроек", async function () {

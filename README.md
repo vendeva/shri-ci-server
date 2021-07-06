@@ -20,7 +20,7 @@
 -   В корне проекта выполнить npm link html-url-decorator.
 -   Установить глобально selenium-standalone: npm install selenium-standalone --global.
 -   Далее выполнить: selenium-standalone install.
--   В отдельной папке терминала выполнить selenium-standalone start (к сожалению использование плагина hermione-selenium-standalone-runner в конфиге hermione приводи к ошибке spawn selenium-standalone ENOENT(Windows 10)). Также не отрабатывает корректно html-reporter.
+-   В отдельной папке терминала выполнить selenium-standalone start (к сожалению использование плагина hermione-selenium-standalone-runner в конфиге hermione приводит к ошибке spawn selenium-standalone ENOENT(Windows 10)).
 -   Команда для запуска тестов npm run hermione.
 
 #### Другое

@@ -19,6 +19,6 @@ describe("Переход на детальную страницу билда", f
 
         assert.strictEqual(text, "5dd83fb");
 
-        //await browser.assertView("detail", "div.build");
+        await browser.assertView("detail", "div.build");
     });
 });
