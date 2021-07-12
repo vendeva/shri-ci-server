@@ -12,6 +12,12 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+.error {
+    white-space: pre-wrap;
+    color: var(--red-500);
+    @include mb-8;
+}
+
 #root {
     display: flex;
     flex-direction: column;
@@ -170,7 +176,8 @@ input::-webkit-inner-spin-button {
         &:before {
             @include absolute-position(22px, 22px, 2px, -30px);
         }
-        &_waiting {
+        &_waiting,
+        &_inprogress {
             color: var(--orange-500);
             &:before {
                 background-image: url("../images/waiting.svg");
@@ -182,7 +189,8 @@ input::-webkit-inner-spin-button {
                 background-image: url("../images/finish.svg");
             }
         }
-        &_canceled {
+        &_canceled,
+        &_fail {
             color: var(--red-500);
             &:before {
                 background-image: url("../images/cancel.svg");
@@ -228,6 +236,8 @@ input::-webkit-inner-spin-button {
     }
 
     &__authorName {
+        max-width: 170px;
+        @include hide-strings;
         &:before {
             @include absolute-image(16px, 16px, url("../images/user.svg"));
         }
@@ -325,6 +335,7 @@ div.build {
         color: var(--blue-grey-500);
         margin-bottom: 22px;
     }
+
     .input {
         @include mb-18;
     }
@@ -393,7 +404,10 @@ div.build {
     &_cancel {
         @include button(20px, 36px, var(--color-bg-control));
     }
-    &_condition-grey {
+    &_none {
+        display: none;
+    }
+    &_condition-cancel {
         &:hover {
             @include button-hover(var(--color-bg-control-hovered));
         }
@@ -404,7 +418,7 @@ div.build {
             @include button-disabled(var(--color-bg-disabled), var(--color-text-disabled));
         }
     }
-    &_condition-yellow {
+    &_condition-action {
         &:hover {
             @include button-hover(var(--color-bg-action-hovered));
         }
@@ -470,5 +484,86 @@ div.build {
 
     & * {
         font-family: inherit;
+    }
+}
+
+// Loading spinner
+
+.loading {
+    display: inline;
+    position: relative;
+    z-index: 999999;
+    margin-top: 20px;
+
+    &__icon {
+        margin: auto;
+        width: 80px;
+        height: 80px;
+
+        border: solid 3px transparent;
+        border-top-color: var(--color-bg-heavy);
+        border-left-color: var(--color-bg-heavy);
+        border-radius: 80px;
+
+        -webkit-animation: loading-spinner 500ms linear infinite;
+        -moz-animation: loading-spinner 500ms linear infinite;
+        -ms-animation: loading-spinner 500ms linear infinite;
+        -o-animation: loading-spinner 500ms linear infinite;
+        animation: loading-spinner 500ms linear infinite;
+    }
+}
+
+@-webkit-keyframes loading-spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes loading-spinner {
+    0% {
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes loading-spinner {
+    0% {
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes loading-spinner {
+    0% {
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loading-spinner {
+    0% {
+        transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }

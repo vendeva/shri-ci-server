@@ -1,42 +1,59 @@
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { Header } from "../components/Header";
 import { BuildCard } from "../components/BuildCard";
 import { Log } from "../components/Log";
-import { useParams } from "react-router-dom";
 import constants from "../constants/constants";
-import dataJson from "../data/buildList.json";
+import { addNewBuild, getFetchBuildById } from "../actions/builds";
+import { getBuildDetail, getBuildError } from "../reducers/builds";
+import { getSettings } from "../reducers/settings";
 
 export const BuildDetailsPage = () => {
-    const repoName = "vendeva/yandex_task1";
     const { buildId } = useParams();
-    const { data } = dataJson;
-    const {
-        buildNumber,
-        commitMessage,
-        branchName,
-        commitHash,
-        authorName,
-        start,
-        duration,
-        status,
-    } = data.find((item) => item.id === buildId);
+    const history = useHistory();
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch({
+            type: constants.DETAIL_BUILD,
+            payload: {},
+        });
+        dispatch(getFetchBuildById(buildId));
+    }, [dispatch, buildId]);
+
+    const data = useSelector(getBuildDetail);
+    const error = useSelector(getBuildError);
+
+    let { repoName } = useSelector(getSettings);
+    repoName = repoName
+        .split("/")
+        .pop()
+        .replace(/\.\w+$/, "");
 
     return (
         <>
-            <Header classHeader="buildDetail" text={constants.REBUILD} title={repoName} />
-            <div className="container">
-                <BuildCard
-                    buildNumber={buildNumber}
-                    commitMessage={commitMessage}
-                    branchName={branchName}
-                    commitHash={commitHash}
-                    authorName={authorName}
-                    start={start}
-                    duration={duration}
-                    key={buildId}
-                    status={status}
-                />
-                <Log />
-            </div>
+            {Object.keys(data).length !== 0 && (
+                <>
+                    <Header
+                        classHeader="buildDetail"
+                        text={constants.REBUILD}
+                        title={`${data.authorName}/${repoName}`}
+                        clickButton={() => dispatch(addNewBuild(data.commitHash, history))}
+                    />
+                    <div className="container">
+                        <BuildCard data={data} key={buildId} />
+                        {data.log ? (
+                            <Log log={data.log} />
+                        ) : (
+                            !error && (
+                                <div className="loading">
+                                    <div className="loading__icon"></div>
+                                </div>
+                            )
+                        )}
+                    </div>
+                </>
+            )}
         </>
     );
 };

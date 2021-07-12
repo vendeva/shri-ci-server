@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import constants from "../constants/constants";
 import classnames from "classnames";
 
 export const BuildCard = (params) => {
     const componentName = "build";
+    const link = params.link;
     const {
-        link,
         buildNumber,
         commitMessage,
         branchName,
@@ -13,26 +14,19 @@ export const BuildCard = (params) => {
         start,
         duration,
         status,
-    } = params;
-    const date = new Date(start);
-    const months = [
-        "янв",
-        "февр",
-        "март",
-        "апр",
-        "май",
-        "июня",
-        "июля",
-        "авг",
-        "сент",
-        "окт",
-        "нояб",
-        "дек",
-    ];
+    } = params.data;
+
+    const date = new Date(`${start}Z`);
+
+    const months = constants.MONTHS;
     const dateString = start
-        ? `${date.getDate()} ${months[date.getMonth()]}, ${("0" + date.getHours()).slice(
-              -2
-          )}:${date.getMinutes()}`
+        ? `${date.getDate()} ${months[date.getMonth()]}, ${date.toLocaleTimeString(
+              navigator.language,
+              {
+                  hour: "2-digit",
+                  minute: "2-digit",
+              }
+          )}`
         : "";
 
     const timeFormat = (duration) => {
@@ -59,7 +53,9 @@ export const BuildCard = (params) => {
                 </div>
                 <div className={`${componentName}__body`}>
                     <div className={`${componentName}__branchName`}>{branchName}</div>
-                    <div className={`${componentName}__commitHash`}>{commitHash.slice(0, 7)}</div>
+                    <div className={`${componentName}__commitHash`}>
+                        {commitHash && commitHash.slice(0, 7)}
+                    </div>
                     <div className={`${componentName}__authorName`}>{authorName}</div>
                 </div>
             </div>

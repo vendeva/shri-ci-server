@@ -22,5 +22,6 @@ module.exports = {
         }),
     }),
     useLocalPath: path.resolve(__dirname, "localRepository"),
+    useLogsPath: path.resolve(__dirname, "logs"),
     execPromise: util.promisify(execFile),
 };
