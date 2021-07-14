@@ -1,5 +1,6 @@
 const assert = require("assert");
 const delay = require("delay");
+const constants = require("../client/src/constants/constants");
 
 describe("Страница настроек", function () {
     it("Cравнить значение buildCommand в поле Git Repository c установленной заглушкой", async function () {
@@ -42,8 +43,8 @@ describe("Страница настроек", function () {
             await browser.$("[data-testid='error-buildCommand']")
         ).getText();
 
-        assert.strictEqual(errorRepo, "Необходимо заполнить наименование репозитория");
-        assert.strictEqual(errorCommand, "Необходимо заполнить команду для сборки");
+        assert.strictEqual(errorRepo, constants.ERROR_REPONAME);
+        assert.strictEqual(errorCommand, constants.ERROR_BUILDCOMMAND);
 
         await browser.assertView("settings", ".settings");
     });

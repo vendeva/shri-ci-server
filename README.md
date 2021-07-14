@@ -13,10 +13,11 @@
 
 #### Модульное тестирование
 
-В папке client/src/**tests**. Команда для запуска тестов npm run test в папке client. Папка client/dataForTests заглушка для модульного и интегрционного тестирования.
+В папке client/src/\_\_tests\_\_. Команда для запуска тестов npm run test в папке client. Папка client/dataForTests заглушка для модульного и интегрционного тестирования.
 
 #### Интеграционное тестирование
 
+-   Установить JDK
 -   В корне проекта выполнить npm link html-url-decorator.
 -   Установить глобально selenium-standalone: npm install selenium-standalone --global.
 -   Далее выполнить: selenium-standalone install.
