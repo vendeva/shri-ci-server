@@ -2,12 +2,14 @@
     "name": "ci_server",
     "version": "1.0.0",
     "description": "CI_server",
-    "main": "server.js",
+    "main": "dist/server.js",
     "scripts": {
         "test": "jest",
-        "start": "node server.js",
         "watch": "nodemon --watch server.js --watch controllers/*",
-        "hermione": "hermione gui --retry 1 -p 8080"
+        "hermione": "hermione gui --retry 1 -p 8080",
+        "tsc": "tsc",
+        "clean": "rm -rf dist",
+        "start": "npm run clean && npm run tsc && node dist/server.js"
     },
     "author": "Venera Butakova",
     "license": "ISC",
@@ -19,9 +21,13 @@
         "nodemon": "^2.0.7"
     },
     "devDependencies": {
+        "@types/cors": "^2.8.12",
+        "@types/express": "^4.17.13",
+        "@types/node": "^8.10.66",
         "hermione": "^4.0.0-alpha.9",
         "hermione-selenium-standalone-runner": "github:vendeva/hermione-selenium-standalone-runner",
         "html-reporter": "^7.0.2",
-        "normalize-path": "^3.0.0"
+        "normalize-path": "^3.0.0",
+        "typescript": "^4.3.5"
     }
 }

@@ -1,0 +1,9 @@
+{
+    "data": {
+        "id": "68d91345-c55c-418e-a7e5-6ab420ac726d",
+        "repoName": "https://github.com/vendeva/yandex_task1.git",
+        "buildCommand": "npm run build12",
+        "mainBranch": "main",
+        "period": 20
+    }
+}

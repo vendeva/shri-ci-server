@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "allowJs": true,
+        "strict": true,
+        "outDir": "dist",
+        "sourceMap": false,
+        "esModuleInterop": true,
+        "resolveJsonModule": true
+    },
+    "exclude": [
+        "client",
+        "localRepository",
+        "logs",
+        "hermione",
+        "hermione-html-report",
+        "hermione-url-decorator"
+    ]
+}
